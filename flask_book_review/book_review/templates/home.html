@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	  	<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+	  	</ol>
+	  	<div class="carousel-inner">
+		    <div class="carousel-item active">
+		    	<img class="d-block w-100" src= "{{ url_for('static', filename = 'img/book_3.png') }}" alt="First slide">
+		    </div>
+		    <div class="carousel-caption d-none d-md-block">
+	    		<p>
+	    			<form class="d-flex">
+		                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+		            	<button class="btn btn-outline-success" type="submit">Search</button>
+	            	</form>
+	    		</p>
+	  		</div>
+	  	</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+            {% for post in posts[1:] %}
+    		    <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="col">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <a class="article-title" href="#">{{ post.title }}</a>
+                                <p class="mr-2" href="#">{{ post.author }}</p>
+                                <P class="text-muted">{{ post.isbn }}</P>
+                                <p class="article-content">{{ post.year }}</p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+	</div>
+{% endblock %}

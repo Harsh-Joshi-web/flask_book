@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+	<h1>This is the review page.</h1>
+    <form methods="POST">
+        <input type="text" name="searchQuery" class="searchTerm" placeholder="What are you looking for?">
+        <button type="submit" class="searchButton">submit</button>
+    </form>
+    <div>
+        Searched For: {{ searchedFor }}
+        {% for searchedFor in book %}
+        <p>
+        ISBN: {{ searchedFor["isbn"] }} <br>
+        Author: {{ searchedFor["author"] }} <br>
+        Title: {{ searchedFor["author"] }} <br>
+        </p>
+        {% endfor %}
+    </div>
+{% endblock %}
